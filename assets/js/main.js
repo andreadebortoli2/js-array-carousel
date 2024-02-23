@@ -12,6 +12,19 @@ const imagesList = [
 // console.log(imagesList);
 
 
+//++++++++thumbnails list++++++++
+
+const thumbnailsList = [
+    'bg_01',
+    'bg_02',
+    'bg_03',
+    'bg_04',
+    'bg_05',
+];
+// console.log(thumbnailsList);
+
+
+
 // - index of the image that has to be show
 let showIndex = 0
 
@@ -33,6 +46,24 @@ for (let i = 0; i < imagesList.length; i++) {
     
     slider.insertAdjacentHTML('beforeend', image)
 }
+
+
+//++++++++add thumbnails to the page++++++++
+
+const thumbnails = document.querySelector('.thumbnails')
+
+for (let i = 0; i < thumbnailsList.length; i++) {
+    const thumbnailSlide = thumbnailsList[i];
+    
+    // console.log(thumbnailSlide);
+
+    const thumbnailEnlighted = `<div class="thumbnail ${i === showIndex ? 'enlighted' : ''} ${thumbnailSlide}"></div>`;
+
+    thumbnails.insertAdjacentHTML('beforeend', thumbnailEnlighted)
+
+}
+
+
 
 // - display only one image
 
@@ -63,6 +94,19 @@ nextBtn.addEventListener('click', function(){
 // - set the class 'active' to the image that has the showIndex incremented
     allImages[showIndex].classList.add('active');
        
+
+//++++++++enlight the thumbnail following the change of the image showed++++++++
+
+// -select and remove the class enlighted from the thumbnail that currently has the class enlighted asigned
+    const currentTumbnail = document.querySelector('.thumbnail.enlighted');
+    currentTumbnail.classList.remove('enlighted');
+
+// - select all the generated thumbnails
+    const allThumbnails = document.querySelectorAll('.thumbnail')
+
+// - set the class 'enlighted' to the thumbnail that has the showIndex incremented
+    allThumbnails[showIndex].classList.add('enlighted');
+
 })
 
 
@@ -84,4 +128,24 @@ prevBtn.addEventListener('click', function(){
 
     allImages[showIndex].classList.add('active');
 
+
+//++++++++enlight the thumbnail following the change of the image showed++++++++
+
+// - same as the nextBtn code
+    const currentTumbnail = document.querySelector('.thumbnail.enlighted');
+    currentTumbnail.classList.remove('enlighted');
+
+    const allThumbnails = document.querySelectorAll('.thumbnail')
+
+    allThumbnails[showIndex].classList.add('enlighted');
+
 })
+
+
+
+
+
+
+
+
+

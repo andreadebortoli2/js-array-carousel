@@ -6,40 +6,94 @@
 }
 
 /* Common */
+main {
+    height: 100vh;
+    background-color: darkgray;
+    display: flex;
+    align-items: center;
+}
 
 .slider {
-    height: 100vh;
-    width: 80%;
+    height: 50%;
+    width: 60%;
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 0;
     text-align: center;
     position: relative;
-    background-color: palegreen;
+    background-color: gray;
 
     & img {
         width: 100%;
+        height: 100%;
+        object-fit: scale-down;
         display: none;
-
     }
 
     .active {
         display: inline-block;
     }
 
-    .commands {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    .thumbnails {
+
+        background-color: black;
         height: 100%;
         position: absolute;
         top: 0;
-        left: 50%;
-        translate: transform(-50%, 0);
+        left: 0;
 
-        & button {
-            border-radius: 50%;
-            padding: 0.5rem;
+        .thumbnail {
+            height: calc(100% / 5);
+            width: 200px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.6;
+        }
+
+        .enlighted {
+            opacity: 1;
+            border: 3px solid lightgray;
+        }
+
+        .bg_01 {
+            background-image: url(../img/carousel-imgs/01.webp);
+        }
+
+        .bg_02 {
+            background-image: url(../img/carousel-imgs/02.webp);
+        }
+
+        .bg_03 {
+            background-image: url(../img/carousel-imgs/03.webp);
+        }
+
+        .bg_04 {
+            background-image: url(../img/carousel-imgs/04.webp);
+        }
+
+        .bg_05 {
+            background-image: url(../img/carousel-imgs/05.webp);
+        }
+
+        .commands {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: auto;
+            height: 96%;
+            position: absolute;
+            top: 2%;
+            left: 50%;
+            transform: translate(-50%, 0);
+            z-index: 100;
+
+            & button {
+                border-radius: 50%;
+                border: none;
+                width: 1.5rem;
+                height: 1.5rem;
+                line-height: 2rem;
+            }
         }
     }
 }
