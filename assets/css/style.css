@@ -18,7 +18,13 @@
     background-color: palegreen;
 
     & img {
-        height: 100%;
+        width: 100%;
+        display: none;
+
+    }
+
+    .active {
+        display: inline-block;
     }
 
     .commands {
@@ -29,7 +35,7 @@
         position: absolute;
         top: 0;
         left: 50%;
-        translate: transform(-50% , 0);
+        translate: transform(-50%, 0);
 
         & button {
             border-radius: 50%;
