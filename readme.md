@@ -15,7 +15,10 @@ Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagin
 
 #Steps
 
--
+-MILESTONE 2
+    -set the array with images
+    -show the image with the for loop
+    -display only one image
 
 #Tools
 
