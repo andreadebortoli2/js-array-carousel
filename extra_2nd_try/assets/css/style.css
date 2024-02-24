@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px dashed deepskyblue; */
+}
+
+.slider {
+    width: 80%;
+    max-width: 1000px;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+img {
+    height: 100%;
+    display: none;
+}
+
+.active {
+    display: inline-block;
+}
+
+.commands {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(0 , -50%);
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+
+    & div {
+        font-size: 3rem;
+        padding: 2rem 1rem;
+        border-radius: 50%;
+        background-color: lightblue;
+    }
+}
