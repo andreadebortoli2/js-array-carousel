@@ -5,37 +5,87 @@
     /* border: 1px dashed deepskyblue; */
 }
 
-.slider {
-    width: 80%;
-    max-width: 1000px;
+/* Common */
+body {
     height: 100vh;
+    overflow: hidden;
+    background-color: dimgray;
+}
+
+.slider {
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
     position: relative;
-}
 
-img {
-    height: 100%;
-    display: none;
-}
+    & img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        margin: 0 auto;
+        display: none;
 
-.active {
-    display: inline-block;
-}
+        &.active {
+            display: inline-block;
+        }
+    }
 
-.commands {
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(0 , -50%);
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
+    .commands {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        
+        & div {
+            width: 3rem;
+            
+            
+            & svg {
+                padding: 1rem 0;
+                border-radius: 50%;
+                color: black;
+                background-color: lightgray;
+                opacity: 0.2;
+                
+                &:hover {
+                fill: lightgray;
+                background-color: black;
+                opacity: 0.5;
+            }
+            }
+        }
+    }
 
-    & div {
-        font-size: 3rem;
-        padding: 2rem 1rem;
-        border-radius: 50%;
-        background-color: lightblue;
+    .thumbnails {
+        
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50% , 0);
+        height: 3%;
+        min-height: 10px;
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+        & div.thumbnail_placeholder {
+            height: 50%;
+            background-color: lightgray;
+            opacity: 0.2;
+
+            &.active_thumbnail {
+                background-color: black;
+                opacity: 0.6;
+            }
+        }
     }
 }

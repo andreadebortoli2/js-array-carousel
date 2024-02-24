@@ -5,8 +5,11 @@
 const imageList = [
     "./assets/img/4U8SybbIccwhTEZMs4KT7qefN7N.jpg",
     "./assets/img/bEGfjpRDXdHFz6gDkBS51kanLNY.jpg",
+    "./assets/img/gCCLUYIe6gWGy5AxphqFibBVPTt.jpg",
+    "./assets/img/l3Rr26K18Jtx3bZkmvKDkpzaijf.jpg",
     "./assets/img/lcGp2uYc2CG4BIBkSSv375AnCn2.jpg",
     "./assets/img/ngUaHgSZGkKy1Izwjk7qwZLOC5A.jpg",
+    "./assets/img/xBUggE2z6dpKYO0ba00DZC11iOE.jpg",
     "./assets/img/zNhbUDdlJSymHFgEyOKF7QaUo9I.jpg"
 ]
 
@@ -44,6 +47,11 @@ let showIndex = 0;
 
 const slider = document.querySelector('.slider')
 
+//////// ------- thumbnails -------
+////////  - set as variable the thumbnails area and print inside the placeholders
+    const thumbnails = document.querySelector('.thumbnails');
+
+
 for (let i = 0; i < imageList.length; i++) {
     const image = imageList[i];
     
@@ -67,8 +75,17 @@ const imageFullCode = `<img class="${i === showIndex ? 'active' : ''}" src="${im
 
 slider.insertAdjacentHTML('beforeend', imageFullCode);
 
+//////// - create the thumbnail placeholder and add to thumbnails
+    const thumbnailPlaceholder = document.createElement('div');
+    thumbnailPlaceholder.classList.add('thumbnail_placeholder');
+//////// - with calc on the imageList.length so if i'll add images to the element the length automatically adjust itself
+    thumbnailPlaceholder.style.width = `calc(90% / ${imageList.length})`;
+    if (i === showIndex) {
+        thumbnailPlaceholder.classList.add('active_thumbnail')
+    };
+    // console.log(thumbnailPlaceholder);
+    thumbnails.append(thumbnailPlaceholder)
 };
-
 
 // ------- add commands -------
 
@@ -107,6 +124,13 @@ nextBtn.addEventListener('click', function(){
     // - add the class utilizing the showIndex as variable of discrimination cause is just a number and can compare with the order number of the array allImages
     allImages[showIndex].classList.add('active');
     
+////////  - set rules for the tumbnails as for the images
+        const activeTumbnail = document.querySelector('.active_thumbnail');
+        activeTumbnail.classList.remove('active_thumbnail');
+
+        const allThumbnailsPlaceholders = document.querySelectorAll('.thumbnail_placeholder');
+        allThumbnailsPlaceholders[showIndex].classList.add('active_thumbnail');
+
 });
 
 
@@ -128,5 +152,12 @@ prevBtn.addEventListener('click', function(){
 
     const allImages = document.querySelectorAll('img');
     allImages[showIndex].classList.add('active');
+
+////////  - set rules for the tumbnails as for the images
+        const activeTumbnail = document.querySelector('.active_thumbnail');
+        activeTumbnail.classList.remove('active_thumbnail');
+
+        const allThumbnailsPlaceholders = document.querySelectorAll('.thumbnail_placeholder');
+        allThumbnailsPlaceholders[showIndex].classList.add('active_thumbnail');
     
 });
