@@ -80,19 +80,26 @@ const nextBtn = document.querySelector('.next_btn')
 
 nextBtn.addEventListener('click', function(){
     
-    // - every click the showIndex has to increase to change the image, to change has to be a let instead of a const
+// - every click the showIndex has to increase to change the image, to change has to be a let instead of a const
     showIndex++
     // console.log(showIndex);
     
-    // - to change the image shown i have to change the image that has the class="active"so:
+// - maki the array as a loop so when you arrive at the end of the array the next click bring you back to the begin of the array
+    // - when the showIndex pass over the last element(= array.length-1 cause the index start from 0 instead of 1 as the measure of the length) of the array has to become '0'
+
+    if (showIndex > imageList.length-1) {
+        showIndex = 0
+    };
+
+
+// - to change the image shown i have to change the image that has the class="active"so:
     //   - first i have to remove the class from the image that already has it
     
     const activeImage = document.querySelector('img.active');
     activeImage.classList.remove('active');
     // console.log(activeImage);
 
-    // - than i add the class to the image that has the array position equal to the showIndex (increased by the click)
-
+// - than i add the class to the image that has the array position equal to the showIndex (increased by the click)
     // - select all the images that can receive the class
 
     const allImages = document.querySelectorAll('img');
@@ -111,6 +118,10 @@ const prevBtn = document.querySelector('.prev_btn')
 prevBtn.addEventListener('click', function(){
 
     showIndex--
+
+    if (showIndex < 0) {
+        showIndex = imageList.length-1
+    };
 
     const activeImage = document.querySelector('img.active');
     activeImage.classList.remove('active');
